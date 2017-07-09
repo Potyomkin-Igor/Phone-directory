@@ -1,0 +1,18 @@
+.footer {
+    background: #dcdcdc;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+.centered {
+    text-align: center;
+}
+.color-icon {
+    color: rgba(15, 15, 15, 0.69);
+    padding-left: 1%;
+    padding-right: 1%;
+}
