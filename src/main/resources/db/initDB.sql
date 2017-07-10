@@ -1,18 +1,15 @@
-CREATE TABLE IF NOT EXISTS types (
-  id   BIGINT      NOT NULL,
-  name VARCHAR(25) NULL,
-  PRIMARY KEY (id)
-);
+-- CREATE TABLE IF NOT EXISTS types (
+--   id   BIGINT      NOT NULL,
+--   name VARCHAR(25) NULL,
+--   PRIMARY KEY (id)
+-- );
 
 CREATE TABLE IF NOT EXISTS contacts (
   id      BIGINT      NOT NULL,
   phone   VARCHAR(24) NOT NULL,
-  type_id BIGINT      NULL,
+  type    VARCHAR(15)     NULL,
   comment VARCHAR     NULL,
-  PRIMARY KEY (id),
-  CONSTRAINT TYPE_PHONE
-  FOREIGN KEY (type_id) REFERENCES types (id)
-  ON UPDATE CASCADE
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS users (

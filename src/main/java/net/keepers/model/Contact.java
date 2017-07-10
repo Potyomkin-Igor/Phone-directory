@@ -2,7 +2,9 @@ package net.keepers.model;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Data
 @Entity
@@ -10,8 +12,8 @@ import javax.persistence.*;
 public class Contact extends AbstractModel {
     @Column(name = "phone")
     private String phoneNumber;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Type type;
+    @Column(name = "type")
+    private String type;
     @Column(name = "comment")
     private String comment;
 }

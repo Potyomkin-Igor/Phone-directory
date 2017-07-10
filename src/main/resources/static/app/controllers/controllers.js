@@ -12,10 +12,10 @@ mainApp.config(function ($routeProvider, $httpProvider) {
                 controller: 'UserController',
                 templateUrl: 'views/main/About.html'
             })
-        .when('/api/type',
+        .when('/user/edit',
             {
-                controller: 'TypeController',
-                templateUrl: 'views/main/TypesShow.html'
+                controller: 'UserController',
+                templateUrl: 'views/main/UserFormEdit.html'
             })
         .otherwise({redirectTo: '/'});
 

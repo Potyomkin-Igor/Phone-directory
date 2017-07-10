@@ -1,7 +1,6 @@
 package net.keepers.controllers;
 
 import net.keepers.dto.DtoUser;
-import net.keepers.model.User;
 import net.keepers.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

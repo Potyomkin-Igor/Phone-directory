@@ -1,7 +1,5 @@
 package net.keepers.controllers;
 
-import net.keepers.dao.ContactDAO;
-import net.keepers.dto.DtoContact;
 import net.keepers.model.Contact;
 import net.keepers.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +21,9 @@ public class ContactController {
         this.contactService = contactService;
     }
 
-    @GetMapping("/contacts")
+    @GetMapping("/api/contacts")
     @ResponseBody
-    public ResponseEntity<List<Contact>> getDtoContact() {
+    public ResponseEntity<List<Contact>> getContacts() {
         List<Contact> contacts = contactService.getAllContacts();
         return new ResponseEntity<>(contacts, HttpStatus.OK);
     }

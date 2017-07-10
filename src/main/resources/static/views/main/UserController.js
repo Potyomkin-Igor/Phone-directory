@@ -1,5 +1,5 @@
 angular.module('phoneDirectory')
-    .controller('UserController', function ($scope, User, $location, $rootScope, $route, $uibModal) {
+    .controller('UserController', function ($scope, User, $location, $rootScope) {
         $scope.getAllUsers = function () {
             var users = User.query({}, function () {
                 $scope.users = users;
@@ -7,73 +7,43 @@ angular.module('phoneDirectory')
             })
         };
 
+        $scope.types = ["", "MOBILE", "HOME"];
 
-// /Need to refactor/
-    var fieldsAreValid = function () {
-        // $scope.validationMessage = '';
-        // $scope.pattern = "^((\\+\\d)?[\\d]?)?((\\(?\\d){3}\\)?([\\-]|[\\s]))?[\\d\\-]{7,10}$"
-        // if ($scope.user.contact.phoneNumber !== pattern) {
-        //     $scope.validationMessage = "Phone number is not valid";
-        //     return false;
-        // }
-        return true;
-    };
+        $scope.regex = '^((\\+\\d)?[\\d]?)?((\\(?\\d){3}\\)?([\\-]|[\\s]))?[\\d\\-]{7,10}$';
 
 
-    $scope.update = function (interest) {
-        return $scope.user = User.update({id: user.id}, user, function () {
-            $scope.user = User.get({id: user.id})
-        })
-    };
-
-
-    $scope.submit = function () {
-        if (fieldsAreValid()) {
-            $scope.update($scope.user).$promise.then(function (success) {
-                $route.reload();
-            }, function (error) {
-                $scope.error = error.status + " " + error.statusText;
-            });
-        } else {
-            $scope.error = $scope.validationMessage;
-        }
-    }
-
-
-    $scope.openUpdateModal = function (user) {
-        $scope.userModal = $uibModal.open({
-            templateUrl: 'views/main/UpdateUserModal.html',
-            controller:  'updateModalController',
-            size: 'md',
-            resolve: {
-                user: $scope.user
-            }
-        }).result.then(function (user) {
-            if (fieldsAreValid()) {
+        $scope.submit = function(form) {
+            if (form.$invalid) {
+                angular.forEach(form.$error.required, function(item) {
+                    item.$dirty = true;
+                });
+                form.$submitted = false;
+            } else {
                 $scope.update($scope.user).$promise.then(function (success) {
-                    $route.reload();
+                    $location.path('/');
                 }, function (error) {
                     $scope.error = error.status + " " + error.statusText;
                 });
-            } else {
-                $scope.error = $scope.validationMessage;
             }
-        }, function () {
-        });
-    };
-});
+        };
 
+        $scope.update = function (user) {
+            return $scope.user = User.update({id: user.id}, user, function () {
+                $scope.user = User.get({id: user.id})
+            })
+        };
 
-app.controller('updateModalController', function ($scope, $uibModalInstance, user) {
-    $scope.user = user;
-    // $scope.userEmpty = {};
+        $scope.getEditPage = function (user) {
+            $rootScope.userToEditPage = user;
+            $location.path('/user/edit');
+        };
 
-    $scope.closeUserModal = function () {
-        $uibModalInstance.dismiss();
-    };
+        $scope.userForEdit = function () {
+            $scope.user = angular.copy($rootScope.userToEditPage);
+        };
 
-    $scope.updateUser = function () {
-        $uibModalInstance.close($scope.user);
-    }
-
+        $scope.update = function (user) {
+            return $scope.user = User.update({id: user.id}, user, function () {
+            })
+        };
 });

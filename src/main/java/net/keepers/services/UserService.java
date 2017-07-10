@@ -33,21 +33,14 @@ public class UserService {
         return dtoUsers;
     }
 
-
     public DtoUser updateDtoUser (DtoUser dtoUser) {
         User user = userMapper.userFromDto(dtoUser);
         user = userDAO.save(user);
         return userMapper.fromUserToDto(user);
     }
 
-
-
-
-
     public List<User> gertAllUser() {
-        List<User> users =(List<User>) userDAO.findAll();
-        return users;
+        return (List<User>) userDAO.findAll();
     }
-
 
 }
