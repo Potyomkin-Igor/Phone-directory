@@ -39,8 +39,8 @@ public class UserService {
         return userMapper.fromUserToDto(user);
     }
 
-    public List<User> gertAllUser() {
-        return (List<User>) userDAO.findAll();
-    }
+//    public List<User> gertAllUser() {
+//        return (List<User>) userDAO.findAll();
+//    }
 
 }
