@@ -20,5 +20,4 @@ mainApp.config(function ($routeProvider, $httpProvider) {
         .otherwise({redirectTo: '/'});
 
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
-
 });
