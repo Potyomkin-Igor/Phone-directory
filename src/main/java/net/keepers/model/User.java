@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "users")
-public class User extends AbstractModel{
+public class User extends AbstractModel {
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")

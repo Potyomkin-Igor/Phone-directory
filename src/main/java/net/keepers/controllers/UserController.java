@@ -27,12 +27,11 @@ public class UserController {
     }
 
     @PutMapping("/api/user/{id}")
-    public ResponseEntity<DtoUser> updateUser (@PathVariable("id") long id, @Valid @RequestBody DtoUser dtoUser) {
+    public ResponseEntity<DtoUser> updateUser(@PathVariable("id") long id, @Valid @RequestBody DtoUser dtoUser) {
         DtoUser currentUser = userService.updateDtoUser(dtoUser);
-        if(currentUser != null){
+        if (currentUser != null) {
             return new ResponseEntity<>(dtoUser, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
 }

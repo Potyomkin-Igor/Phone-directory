@@ -28,8 +28,8 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="type">Phone type</label>
                             <div class="col-md-9">
-                                <select name="type" id="type" ng-model="user.contact.type" ng-options="type for type in types">
-                                    <!--<option style="display: none"  ng-repeat="type in types" value="{{ type.name }}">{{type.name}}</option>-->
+                                <select name="type" id="type" ng-model="user.contact.type"
+                                        ng-options="type for type in types">
                                     <option style="display: none" value=""></option>
                                 </select>
                             </div>
@@ -39,7 +39,9 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="comment">Your comment</label>
                             <div class="col-md-9">
-                                <textarea style="resize: none" class="form-control" ng-model="user.contact.comment" id="comment" name="comment" placeholder="Please enter your comment here..." rows="5">
+                                <textarea style="resize: none" class="form-control" ng-model="user.contact.comment"
+                                          id="comment" name="comment" placeholder="Please enter your comment here..."
+                                          rows="5">
 
                                 </textarea>
                             </div>

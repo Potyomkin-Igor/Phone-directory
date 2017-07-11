@@ -19,7 +19,6 @@ public class ContactService {
     }
 
     public List<Contact> getAllContacts() {
-        return((List<Contact>) contactDAO.findAll());
+        return ((List<Contact>) contactDAO.findAll());
     }
-
 }

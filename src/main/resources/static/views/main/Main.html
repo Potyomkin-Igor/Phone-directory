@@ -1,9 +1,10 @@
-<div class="container-fluid" ng-init="getAllUsers()" >
+<div class="container-fluid" ng-init="getAllUsers()">
     <div class="panel panel-success">
         <div class="panel-heading">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-3">
-                    <h2 class="text-center pull-left" style="padding-left: 30px;"> <span class="glyphicon glyphicon-list-alt"> </span> Directory </h2>
+                    <h2 class="text-center pull-left" style="padding-left: 30px;"><span
+                            class="glyphicon glyphicon-list-alt"> </span> Directory </h2>
                 </div>
                 <div class="col-xs-9 col-sm-9 col-md-9">
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -11,9 +12,11 @@
                             <label> Search </label>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input type="text" class="form-control input-md" name="search" placeholder="Last name" ng-model="searchText.lastName">
+                                    <input type="text" class="form-control input-md" name="search"
+                                           placeholder="Last name" ng-model="searchText.lastName">
                                     <div class="input-group-btn">
-                                        <button type="button" class="btn btn-md btn-warning"> <span class=" glyphicon glyphicon-search"></span></button>
+                                        <button type="button" class="btn btn-md btn-warning"><span
+                                                class=" glyphicon glyphicon-search"></span></button>
                                     </div>
                                 </div>
                             </div>
@@ -26,21 +29,21 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th class="text-center"> No. </th>
-                    <th class="text-center"> Name </th>
-                    <th class="text-center"> Last name </th>
-                    <th class="text-center"> Patronymic </th>
-                    <th class="text-center"> Phone </th>
-                    <th class="text-center"> Type </th>
-                    <th class="text-center"> Comment </th>
-                    <th class="text-center"> Edit </th>
+                    <th class="text-center"> No.</th>
+                    <th class="text-center"> Name</th>
+                    <th class="text-center"> Last name</th>
+                    <th class="text-center"> Patronymic</th>
+                    <th class="text-center"> Phone</th>
+                    <th class="text-center"> Type</th>
+                    <th class="text-center"> Comment</th>
+                    <th class="text-center"> Edit</th>
                 </tr>
                 </thead>
 
                 <tbody>
                 <tr ng-repeat="user in users | filter: searchText | orderBy: firstName">
-                    <td id="no" class="text-center"> {{ user.id }} </td>
-                    <td id="name" class="text-center">{{ user.firstName }} </td>
+                    <td id="no" class="text-center"> {{ user.id }}</td>
+                    <td id="name" class="text-center">{{ user.firstName }}</td>
                     <td id="lastName" class="text-center">{{ user.lastName }}</td>
                     <td id="patronymic" class="text-center">{{ user.patronymic }}</td>
                     <td id="phone" class="text-center">{{ user.contact.phoneNumber }}</td>
