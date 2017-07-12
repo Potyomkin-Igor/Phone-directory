@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@RequestMapping("/user")
 @RestController
 public class UserController {
     private UserService userService;
@@ -19,14 +20,14 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping({"/api/user", "/api/user/"})
+    @GetMapping
     @ResponseBody
     public ResponseEntity<List<DtoUser>> getAllDtoUsers() {
         List<DtoUser> users = userService.getAllDtoUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
-    @PutMapping("/api/user/{id}")
+    @PutMapping("{id}")
     public ResponseEntity<DtoUser> updateUser(@PathVariable("id") long id, @Valid @RequestBody DtoUser dtoUser) {
         DtoUser currentUser = userService.updateDtoUser(dtoUser);
         if (currentUser != null) {
