@@ -1,62 +1,55 @@
-<div class="container" ng-init="userForEdit()" style="margin-top: 10%">
-    <div class="row">
-        <div ng-show="error">
-            <div class="alert alert-danger">There was an error: {{error}}</div>
-        </div>
-        <div class="col-md-6 col-md-offset-3">
-            <div class="well-form well-sm">
-                <form class="form-horizontal" role="form" ng-submit="submit(userEditForm)" name="userEditForm">
-                    <fieldset>
-                        <legend class="text-center">{{user.firstName}} {{user.lastName}} {{user.patronymic}}</legend>
-                        <!-- Phone input-->
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="phoneNumber">Phone number</label>
-                            <div class="col-md-9">
-                                <input id="phoneNumber" name="phoneNumber"
-                                       ng-model="user.contact.phoneNumber"
-                                       type="text"
-                                       placeholder="+XX(XXX)XXX-XX-XX"
-                                       ng-pattern="regex"
-                                       class="form-control" required>
-                                <small class="alert-danger" ng-show="userEditForm.phoneNumber.$error.pattern">
-                                    Please input a valid phone number.
-                                </small>
-                            </div>
-                        </div>
+<div ng-init="userForEdit()">
+    <div class="col-md-6" ng-show="error">
+        <div class="alert alert-danger">There was an error: {{error}}</div>
+    </div>
+    <div class="modal-header back-color">
+        <h3 class="text-center">{{user.firstName}} {{user.lastName}} {{user.patronymic}}</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" role="form" ng-submit="submit(userEditForm)" name="userEditForm">
+            <!-- Phone input-->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="phoneNumber">Phone number</label>
+                <div class="col-md-9">
+                    <input id="phoneNumber" name="phoneNumber"
+                           ng-model="user.contact.phoneNumber"
+                           type="text"
+                           placeholder="+XX(XXX)XXX-XX-XX"
+                           ng-pattern="regex"
+                           class="form-control" required>
+                    <small class="alert-danger" ng-show="userEditForm.phoneNumber.$error.pattern">
+                        Please input a valid phone number.
+                    </small>
+                </div>
+            </div>
 
-                        <!-- Type select-->
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="type">Phone type</label>
-                            <div class="col-md-9">
-                                <select name="type" id="type" ng-model="user.contact.type"
-                                        ng-options="type for type in types">
-                                    <option style="display: none" value=""></option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Comment body -->
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="comment">Your comment</label>
-                            <div class="col-md-9">
+            <!-- Type select-->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="type">Phone type</label>
+                <div class="col-md-9">
+                    <select name="type" id="type" ng-model="user.contact.type"
+                            ng-options="type for type in types">
+                        <option style="display: none" value=""></option>
+                    </select>
+                </div>
+            </div>
+            <!-- Comment body -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="comment">Your comment</label>
+                <div class="col-md-9">
                                 <textarea style="resize: none" class="form-control" ng-model="user.contact.comment"
                                           id="comment" name="comment" placeholder="Please enter your comment here..."
                                           rows="5">
-
                                 </textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-12 text-right">
-                                <button type="submit" class="btn btn-primary btn-lg">Edit</button>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
+                </div>
             </div>
-        </div>
+            <div class="form-group">
+                <div class="col-md-12 text-right">
+                    <button type="button" class="btn btn-danger size" ng-click="close()">Cancel</button>
+                    <button type="submit" class="btn btn-primary size">Edit</button>
+                </div>
+            </div>
+
+        </form>
     </div>
 </div>
-
-<div ng-include="'views/main/Footer.html'"></div>

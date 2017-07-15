@@ -1,4 +1,4 @@
-var mainApp = angular.module('phoneDirectory', ['ngRoute', 'ngResource']);
+var mainApp = angular.module('phoneDirectory', ['ngRoute', 'ngResource', 'ui.bootstrap']);
 
 mainApp.config(function ($routeProvider, $httpProvider) {
     $routeProvider

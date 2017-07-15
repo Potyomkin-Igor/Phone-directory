@@ -31,3 +31,24 @@ tr:hover
     background-color: #5bc0de;
     color: white;
 }
+
+.size {
+    width: 70px;
+}
+
+.right {
+    text-align: right;
+    left: 14px;
+}
+
+.back-color {
+    background-color: #d6e9c6;
+    color: darkgreen;
+}
+
+.border-style {
+    border-radius: 4px;
+    border-color: darkgray;
+    border-style: groove;
+    border-width: 2px 5px 0;
+}
